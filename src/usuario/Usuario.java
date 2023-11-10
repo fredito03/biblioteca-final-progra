@@ -1,26 +1,30 @@
 package usuario;
 
+import enums.Rol;
+
 public class Usuario {
+    private int ultimoIdUsuario = 0;
     private int id;
     private String nombre;
     private String apellido;
+    private String correo;
     private String contrasena;
-    private int DPI;
+    private String DPI;
+    private Rol rol;
 
-    public Usuario(int id, String nombre, String apellido, String contrasena, int DPI) {
-        this.id = id;
+
+    public Usuario(String nombre, String correo, String apellido, String contrasena, String DPI, Rol rol) {
+        this.id = ultimoIdUsuario += 1;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo = correo;
         this.contrasena = contrasena;
         this.DPI = DPI;
+        this.rol = rol;
     }
 
-    // generate getters and setters
     public int getId() {
         return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
     public String getNombre() {
         return nombre;
@@ -40,16 +44,29 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    public int getDPI() {
+    public String getDPI() {
         return DPI;
     }
-    public void setDPI(int DPI) {
+    public void setDPI(String DPI) {
         this.DPI = DPI;
     }
-    // generate toString method
+    public Rol getRol() {
+        return rol;
+    }
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+    
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    
     @Override
     public String toString() {
-        return "usuario [apellido=" + apellido + ", contrasena=" + contrasena + ", DPI=" + DPI + ", id=" + id
-                + ", nombre=" + nombre + "]";
+        return "Id: " + id + "Nombre: " +  nombre + " Apellido: " + apellido + " DPI:" + DPI + " Rol: " + rol;
     }
 }
