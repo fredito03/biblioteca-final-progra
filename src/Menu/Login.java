@@ -11,6 +11,7 @@ public class Login {
     private Scanner entrada = new Scanner(System.in);
     private controlador controladorUsuario = new controlador();
     private MenuUsuario menuUsuario = new MenuUsuario();
+    private MenuAdmin menuAdmin = new MenuAdmin();
     private void IniciarSesion(){
         System.out.println("Bienvenido al sistema de biblioteca");
         System.out.println("Ingrese su correo electronico");
@@ -36,6 +37,7 @@ public class Login {
         switch (rol) {
             case ADMINISTRADOR:
                 System.out.println("Hola " + usuarioEncontrado.getNombre() + " Bienvenido al sistema, tienes el rol de: " + usuarioEncontrado.getRol());
+                menuAdmin.mostrarMenu();
                 // flujo para administrador
                 break;
             case USUARIO:
