@@ -9,6 +9,11 @@ public class Categoria {
         this.ubicacion = ubicacion;
     }
 
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "ID: " + id + ", Nombre: " + nombre + ", Ubicación: " + ubicacion;
