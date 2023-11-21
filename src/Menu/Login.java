@@ -51,7 +51,5 @@ public class Login {
     public static void main(String[] args) {
         Login login = new Login();
         login.IniciarSesion();
-        System.out.println("Hasta luego!");
-        System.exit(0);
     }
 }
