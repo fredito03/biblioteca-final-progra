@@ -68,7 +68,6 @@ public class MenuAdmin {
         int numPaginas = entrada.nextInt();
         entrada.nextLine();
         controladorCategoria.imprimirCategorias();
-        System.out.println("Ingrese la categoria del libro");
         while(decision.equals("si")){
             System.out.println("Ingrese el nombre de la categoria del libro");
             String nombreCategoria = entrada.nextLine().toLowerCase();
