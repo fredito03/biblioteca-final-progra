@@ -17,10 +17,11 @@ public class MenuAdmin {
     public void mostrarMenu(){
         System.out.println("--- MENU ---");
         System.out.println("1. Agregar Libro");
-        System.out.println("2. Agregar Categoria");
+        System.out.println("2. Actualizar Libro");
         System.out.println("3. Eliminar Libro");
-        System.out.println("4. Eliminar Categoria");
-        System.out.println("5. Salir");
+        System.out.println("4. Agregar Categoria");
+        System.out.println("5. Eliminar Categoria");
+        System.out.println("6. Salir");
         int opcion = entrada.nextInt();
         entrada.nextLine();
         switch (opcion) {
@@ -29,7 +30,7 @@ public class MenuAdmin {
                 mostrarMenu();
                 break;
             case 2:
-                agregarCategoria();
+                actualizarLibro();
                 mostrarMenu();
                 break;
             case 3:
@@ -37,10 +38,14 @@ public class MenuAdmin {
                 mostrarMenu();
                 break;
             case 4:
-                eliminarCategoria();
+                agregarCategoria();
                 mostrarMenu();
                 break;
             case 5:
+                eliminarCategoria();
+                mostrarMenu();
+                break;
+            case 6:
                 salir();
                 break;
             default:
@@ -50,8 +55,7 @@ public class MenuAdmin {
         }
     }
 
-    public void agregarLibro(){
-        controladorLibro.imprimirLibros();
+    private Libro pedirDatosParaNuevoLibro() {
         List<String> categorias = new ArrayList<>();
         String decision = "si";
         System.out.println("Ingrese el titulo del libro");
@@ -80,8 +84,24 @@ public class MenuAdmin {
         int etiqueta = entrada.nextInt();
         System.out.println("Ingrese el numero de copias del libro");
         int numCopias = entrada.nextInt();
-        Libro nuevoLibro = new Libro(titulo, autor, fechaPublicacion, numPaginas, categorias, etiqueta, numCopias);
+        int id = controladorLibro.obtenerUltimoId() + 1;
+        Libro nuevoLibro = new Libro(id, titulo, autor, fechaPublicacion, numPaginas, categorias, etiqueta, numCopias);
+        return nuevoLibro;
+    }
+    public void agregarLibro(){
+        controladorLibro.imprimirLibros();
+        Libro nuevoLibro = pedirDatosParaNuevoLibro();
         controladorLibro.crearLibro(nuevoLibro);
+        controladorLibro.imprimirLibros();
+    }
+
+    public void actualizarLibro(){
+        controladorLibro.imprimirLibros();
+        System.out.println("Ingrese el id del libro a actualizar");
+        int idLibro = entrada.nextInt();
+        entrada.nextLine();
+        Libro nuevoLibro = pedirDatosParaNuevoLibro();
+        controladorLibro.actualizarLibro(idLibro, nuevoLibro);
         controladorLibro.imprimirLibros();
     }
 

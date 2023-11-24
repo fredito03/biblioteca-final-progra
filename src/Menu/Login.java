@@ -42,6 +42,7 @@ public class Login {
                 break;
             case USUARIO:
                 System.out.println("Hola " + usuarioEncontrado.getNombre() + " Bienvenido al sistema, tienes el rol de: " + usuarioEncontrado.getRol());
+                menuUsuario.setUsuario(usuarioEncontrado);
                 menuUsuario.mostrarMenu();
                 break;
         }

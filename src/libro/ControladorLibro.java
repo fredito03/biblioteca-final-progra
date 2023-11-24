@@ -19,6 +19,22 @@ public class ControladorLibro {
         librosRegistrados.add(libro);
     }
 
+    public void actualizarLibro(int idLibro, Libro nuevosDatos){
+        Libro libro = obtenerLibroPorId(idLibro);
+        if(libro != null){
+            libro.setTitulo(nuevosDatos.getTitulo());
+            libro.setAutor(nuevosDatos.getAutor());
+            libro.setFechaPublicacion(nuevosDatos.getFechaPublicacion());
+            libro.setNumPaginas(nuevosDatos.getNumPaginas());
+            libro.setCategorias(nuevosDatos.getCategorias());
+            libro.setEtiqueta(nuevosDatos.getEtiqueta());
+            libro.setNumCopias(nuevosDatos.getNumCopias());
+        }else{
+            System.out.println("El libro no existe o no pudimos encontrarlo, por favor intenta con un id de la lista");
+        }
+
+    }
+
     public void eliminarLibro(int id){
         for (Libro libro : librosRegistrados) {
             if(libro.getId() == id){
@@ -30,6 +46,13 @@ public class ControladorLibro {
 
     public List<Libro> obtenerLibros(){
         return librosRegistrados;
+    }
+
+    public int obtenerUltimoId(){
+        if(librosRegistrados.isEmpty()){
+            return 0;
+        }
+        return librosRegistrados.get(librosRegistrados.size() - 1).getId();
     }
 
 
@@ -56,10 +79,20 @@ public class ControladorLibro {
         }
     }
 
+
+    public Libro obtenerLibroPorId(int id){
+        for (Libro libro : librosRegistrados) {
+            if(libro.getId() == id){
+                return libro;
+            }
+        }
+        return null;
+    }
+
     public void crearLibrosDefault(){
-        Libro libro1 = new Libro("El señor de los anillos", "J.R.R. Tolkien", "12/20/1954", 500, List.of("accion", "drama", "aventura"), 1431, 10);
-        Libro libro2 = new Libro("El hobbit", "J.R.R. Tolkien", "20/10/1937", 300, List.of("accion", "comedia", "aventura"), 24312, 9);
-        Libro libro3 = new Libro("El príncipe", "Nicolas Sparks", "10/10/2022", 400, List.of("amor", "drama", "aventura"), 354123, 16);
+        Libro libro1 = new Libro(1, "El señor de los anillos", "J.R.R. Tolkien", "12/20/1954", 500, List.of("accion", "drama", "aventura"), 1431, 1);
+        Libro libro2 = new Libro(2, "El hobbit", "J.R.R. Tolkien", "20/10/1937", 300, List.of("accion", "comedia", "aventura"), 24312, 2);
+        Libro libro3 = new Libro(3, "El príncipe", "Nicolas Sparks", "10/10/2022", 400, List.of("amor", "drama", "aventura"), 354123, 3);
         librosRegistrados.add(libro1);
         librosRegistrados.add(libro2);
         librosRegistrados.add(libro3);

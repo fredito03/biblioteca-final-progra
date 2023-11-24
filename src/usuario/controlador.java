@@ -47,6 +47,16 @@ public class controlador {
         return null;
     }
 
+
+    public Usuario obtenerUsuarioPorId(int id){
+        for(Usuario usuario : usuarios){
+            if(usuario.getId() == id){
+                return usuario;
+            }
+        }
+        return null;
+    }
+
     private void generarUsuariosPredeterminados(){
         Usuario usuario1 = new Usuario( "Alma", "admin@umg.com", "Lopez", "miumg@@", "3940128410101", Rol.ADMINISTRADOR);
         Usuario usuario2 = new Usuario( "Paula", "pau@umg.com", "Leonardo", "pauxd12@@", "3629202730101", Rol.ADMINISTRADOR);

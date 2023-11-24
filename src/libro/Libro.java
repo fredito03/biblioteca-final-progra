@@ -14,9 +14,10 @@ public class Libro {
     private List<String> categorias;
     private int etiqueta;
     private int numCopias;
+    private int numCopiasDisponibles;
 
-    public Libro(String titulo, String autor, String fechaPublicacion, int numPaginas, List<String> categorias, int etiqueta, int numCopias) {
-        this.id = ++ultimoIdUsuario;
+    public Libro(int id, String titulo, String autor, String fechaPublicacion, int numPaginas, List<String> categorias, int etiqueta, int numCopias) {
+        this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.fechaPublicacion = fechaPublicacion;
@@ -24,10 +25,9 @@ public class Libro {
         this.categorias = categorias;
         this.etiqueta = etiqueta;
         this.numCopias = numCopias;
+        this.numCopiasDisponibles = numCopias;
     }
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
     public String getTitulo() {
         return titulo;
     }
@@ -73,7 +73,12 @@ public class Libro {
     public void setNumCopias(int numCopias) {
         this.numCopias = numCopias;
     }
-
+    public void setNumCopiasDisponibles(int numCopiasDisponibles) {
+        this.numCopiasDisponibles = numCopiasDisponibles;
+    }
+    public int getNumCopiasDisponibles() {
+        return numCopiasDisponibles;
+    }
 
     @Override
     public String toString() {
