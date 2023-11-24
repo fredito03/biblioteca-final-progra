@@ -60,11 +60,13 @@ public class ControladorUsuario {
     private void generarUsuariosPredeterminados(){
         Usuario usuario1 = new Usuario( "Alma", "admin@umg.com", "Lopez", "miumg@@", "3940128410101", Rol.ADMINISTRADOR);
         Usuario usuario2 = new Usuario( "Paula", "pau@umg.com", "Leonardo", "pauxd12@@", "3629202730101", Rol.ADMINISTRADOR);
-        Usuario usuario3 = new Usuario("Ximena", "ximena@.com", "Palencia", "ximenpal82_@", "36464684486", Rol.BIBLIOTECARIO);
+        Usuario usuario3 = new Usuario("Ximena", "ximena@.com", "Palencia", "ximenpal82_@", "36464684486", Rol.USUARIO);
         Usuario usuario4 = new Usuario("Marielos", "marielos@umg.com", "Leon", "marielostop491", "5319202730101", Rol.USUARIO);
+        Usuario usuario5 = new Usuario("Fredy", "fredy@umg.com", "Reyes", "fredito03", "4500316980101", Rol.USUARIO);
         agregarUsuario(usuario1);
         agregarUsuario(usuario2);
         agregarUsuario(usuario3);
         agregarUsuario(usuario4);
+        agregarUsuario(usuario5);
     }
 }
