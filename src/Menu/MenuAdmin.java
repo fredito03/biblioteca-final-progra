@@ -78,7 +78,7 @@ public class MenuAdmin {
             }
             categorias.add(nombreCategoria);
             System.out.println("¿Desea continuar agregando categorias?");
-            decision = entrada.next().toLowerCase();
+            decision = entrada.nextLine().toLowerCase();
         }
         System.out.println("Ingrese la etiqueta del libro");
         int etiqueta = entrada.nextInt();
@@ -88,6 +88,7 @@ public class MenuAdmin {
         Libro nuevoLibro = new Libro(id, titulo, autor, fechaPublicacion, numPaginas, categorias, etiqueta, numCopias);
         return nuevoLibro;
     }
+
     public void agregarLibro(){
         controladorLibro.imprimirLibros();
         Libro nuevoLibro = pedirDatosParaNuevoLibro();
