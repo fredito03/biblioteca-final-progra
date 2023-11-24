@@ -3,13 +3,12 @@ import java.util.Scanner;
 
 import enums.Rol;
 import usuario.Usuario;
-import usuario.controlador;
-import Menu.MenuUsuario;
+import usuario.ControladorUsuario;
 
 public class Login {
 
     private Scanner entrada = new Scanner(System.in);
-    private controlador controladorUsuario = new controlador();
+    private ControladorUsuario controladorUsuario = new ControladorUsuario();
     private MenuUsuario menuUsuario = new MenuUsuario();
     private MenuAdmin menuAdmin = new MenuAdmin();
     private void IniciarSesion(){

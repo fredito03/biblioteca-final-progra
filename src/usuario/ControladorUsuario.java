@@ -4,11 +4,11 @@ import java.util.List;
 
 import enums.Rol;
 
-public class controlador {
+public class ControladorUsuario {
     private List<Usuario> usuarios;
 
 
-    public controlador() {
+    public ControladorUsuario() {
         this.usuarios = new ArrayList<>();
         generarUsuariosPredeterminados();
     }
